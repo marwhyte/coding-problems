@@ -108,6 +108,19 @@ class LinkedList:
             current = current.next_node
 
         return count
+
+    def reverseListRecursive(self, head):
+        newHead = head
+
+        if not head:
+            return None
+
+        if head.next_node:
+            newHead = self.reverseListRecursive(head.next_node)
+            head.next_node.next_node = head
+        head.next_node = None
+        return newHead
+
     
     def add(self, data):
         """
@@ -135,3 +148,4 @@ class LinkedList:
                 nodes.append("[%s]" % current.data)
             current = current.next_node
         return  '-> '.join(nodes)
+
