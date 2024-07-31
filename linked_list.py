@@ -120,7 +120,6 @@ class LinkedList:
             head.next_node.next_node = head
         head.next_node = None
         return newHead
-
     
     def add(self, data):
         """
@@ -131,6 +130,16 @@ class LinkedList:
 
         new_node.next_node = self.head
         self.head = new_node
+
+    def node_at_index(self, index):
+        curr = self.head
+        counter = 0
+
+        while counter != index:
+            curr = curr.next_node
+            counter += 1
+
+        return curr
 
     def __repr__(self):
         """
